@@ -23,7 +23,7 @@ body::before {
   top: 0;
   left: 0;
   z-index: -1;
-  background: #121214;
+  background: #744f00;
 }
 
 .container {
@@ -45,7 +45,7 @@ header h1 {
 }
 
 header p {
-  color: #42d3ff;
+  color: #ffbb00;
   font-size: 16px;
   line-height: 26px;
 }
@@ -107,6 +107,7 @@ select {
   padding: 0 24px;
   font-size: 16px;
   line-height: 26px;
+  overflow: none;
 
   color: #050505;
 }
@@ -144,6 +145,10 @@ select {
 
 .checkbox-wrapper {
   position: relative;
+}
+
+#event-info {
+  overflow: hidden;
 }
 
 .checkbox-wrapper label {
@@ -195,13 +200,15 @@ footer .button {
   height: 56px;
   color: white;
   border-radius: 8px;
-  background: #04d361;
+  background: #ff9100c8;
   border: none;
+  padding: 10px;
+  margin-bottom: 10px;
 
   font-family: "Archivo", sans-serif;
   cursor: pointer;
 }
 
 footer .button:hover {
-  background: #0f763e;
+  background: #b97b00;
 }

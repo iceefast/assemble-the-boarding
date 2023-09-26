@@ -3,151 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>formulario</title>
+    <title>Leitor de Codigo de barra para NFs</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="./images/Favicon.png" type="image/x-icon" />
+    <script src="./javascript/main.js" defer></script>
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Crie e compartilhe seu evento</h1>
+        <h1>Leitor de Código de Barras para NF</h1>
         <p>
-          O primeiro passo, e preecher esse <br />
-          formulario de inscricao;
+          Monte o embarque e faca sua conferencia usando o leitor de codigo de
+          barras <br />
         </p>
       </header>
 
       <main>
         <form id="my-form">
           <fieldset>
-            <legend>Informacoes do evento</legend>
+            <legend>Dia e hora</legend>
+            <div class="coluns-three">
+              <div class="input-wrapper">
+                <label for="event-date"> Data</label>
+                <input type="text" id="dataHoraAtual" required readonly />
+              </div>
 
+              <div class="input-wrapper">
+                <label for="event-begin">Das</label>
+                <input type="time" id="event-begin" required />
+              </div>
+
+              <div class="input-wrapper">
+                <label for="event-end">Ate</label>
+                <input type="time" id="event-end" required />
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Informacoes do Embarque</legend>
+            <!-- 
             <div class="input-wrapper">
               <label for="event-title">
                 Titulo do evento <span>(minimo 8 caracteres)</span></label
               >
-              <input 
-              type="text" 
-              id="event-title"
-              minlength="8"
-              required />
+              <input type="text" id="event-title" minlength="8" required />
             </div>
 
             <div class="input-wrapper">
               <label for="event-link">
                 Link do evento <span>(comece com https://)</span></label
               >
-              <input 
-              type="url" 
-              id="event-link"
-              required />
+              <input type="url" id="event-link" required />
             </div>
 
             <div class="input-wrapper">
               <label for="event-whatsapp">
                 Whatsapp para contato <span>(somente numeros)</span></label
               >
-              <input 
-              type="number" 
-              id="event-whatsapp"
-              required />
-            </div>
+              <input type="number" id="event-whatsapp" required />
+            </div> -->
 
             <div class="input-wrapper">
-              <label for="event-info" id="big-area">Informacoes extras</label>
-              <textarea 
-              id="event-info" 
-              cols="30" 
-              rows="10">
-            </textarea>
-            </div>
-
-            <div class="input-wrapper">
-              <label for="event-category"> Categoria</label>
+              <label for="event-category">Transportadora</label>
               <select id="event-category">
-                <option value="event-select">Ao vivo</option>
-                <option value="event-select">Gravado</option>
-                <option value="event-select">Mentorship</option>
+                <option value="event-select">Mandae</option>
+                <option value="event-select">Correrios</option>
+                <option value="event-select">Jamef</option>
+                <option value="event-select">Azul</option>
               </select>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="event-info" id="big-area"
+                >Por favor, escaneie o código de barras da NF:</label
+              >
+              <textarea
+                id="event-info"
+                onkeydown="if(event.keyCode === 13) lerCodigoDeBarras()"
+              >
+              </textarea>
             </div>
           </fieldset>
 
-          <fieldset>
+          <!-- <fieldset>
             <div class="fieldset-wrapper">
               <legend>Privacidade</legend>
 
               <div class="input-wrapper">
-               <label for="event-email">
-                E-mail do administrador
-                <span>(digite um email valido)</span></label>
+                <label for="event-email">
+                  E-mail do administrador
+                  <span>(digite um email valido)</span></label
+                >
 
-              <input 
-              type="email" 
-              id="event-email"
-              required />
-            </div>
-
-            <div class="input-wrapper">
-              <label for="event-password">
-                Senha de acesso para os particiapntes
-                <span>(minimo 8 caracteres)</span></label
-              >
-              <input 
-              type="password" 
-              id="event-password"
-              minlength="8"
-              required />
-            </div>
-
-            <div class="checkbox-wrapper">
-              <input type="checkbox" id="event-private" />
-                 <label for="event-private">Evento Privado</label>
-            </div>
-
-           
-          </fieldset>
-<br>
-<br>
-<br>
-          <fieldset>
-             <legend>Dia e hora</legend>
-            <div class="coluns-three">
-              <div class="input-wrapper">
-
-                <label for="event-date"> Data</label>
-                <input 
-                type="date" 
-                id="event-date"
-                required />
+                <input type="email" id="event-email" required />
               </div>
 
               <div class="input-wrapper">
-                <label for="event-begin">Das</label>
-                <input 
-                type="time" 
-                id="event-begin"
-                required />
+                <label for="event-password">
+                  Senha de acesso para os particiapntes
+                  <span>(minimo 8 caracteres)</span></label
+                >
+                <input
+                  type="password"
+                  id="event-password"
+                  minlength="8"
+                  required
+                />
               </div>
 
-              <div class="input-wrapper">
-                <label for="event-end">Ate</label>
-                <input 
-                type="time" 
-                id="event-end"
-                required />
+              <div class="checkbox-wrapper">
+                <input type="checkbox" id="event-private" />
+                <label for="event-private">Evento Privado</label>
               </div>
-               
             </div>
-          </fieldset>
+          </fieldset> -->
+          <!-- <br />
+          <br />
+          <br /> -->
         </form>
-
       </main>
 
-      <footer> 
-       <button
-       class="button"
-       form="my-form">
-       Salvar Evento</button>
-        
+      <footer>
+        <!-- <div class="coluns-three"> -->
+        <button class="button" form="my-form" onclick="exportarParaXLS()">
+          Salvar em XLS
+        </button>
+        <button class="button" onclick="exportarParaPDF()">
+          Salvar em PDF
+        </button>
+        <!-- </div> -->
       </footer>
     </div>
   </body>
